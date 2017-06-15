@@ -16,8 +16,26 @@ class App extends React.Component {
   render() {
 
     return (
-      <div className="container">
-        This is my starting point! 
+      <div>
+        <div>
+          Search
+        </div>
+        <div>
+          Result List
+            <div>
+              Result Item
+                <div>
+                  Rate Movie
+                </div>
+            </div>
+        </div>
+        <div>
+          Result Details
+        </div>
+        
+        <div>
+          Ranking
+        </div>
       </div>
     );
   }
