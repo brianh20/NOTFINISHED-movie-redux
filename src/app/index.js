@@ -9,10 +9,11 @@ import Request from 'superagent';
 class App extends React.Component {
   constructor(){
     super();
-      var url = `https://s3.amazonaws.com/technical-challenge/Contacts_v2.json`;
-      Request.get(url).then((response) => {
-        console.log(response.body);
-      });
+    
+    var url = `https://s3.amazonaws.com/technical-challenge/Contacts_v2.json`;
+    Request.get(url).then((response) => {
+      console.log(response.body);
+    });
   }
 
   render() {
