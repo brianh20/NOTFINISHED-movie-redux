@@ -1,12 +1,20 @@
-import React from "react";
-import { render } from "react-dom";
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+// import {connect} from 'react-redux';
 
-import Request from 'superagent';
+import store from "./store.js";
+
+import { Search } from './components/search';
+import { Details } from './components/details';
+import { Results } from './components/results';
+
+import less from './styles/styles.less'; // eslint-disable-line
 
 class App extends React.Component {
   constructor(){
     super();
-    // fetch('https://s3.amazonaws.com/technical-challenge/Contacts_v2.json')
+    // fetch('https://swapi.co/api/people/?search=r2')
     //   .then(d => d.json())
     //   .then(d => {
     //     console.log(d);
@@ -14,31 +22,23 @@ class App extends React.Component {
   }
 
   render() {
-
     return (
-      <div>
-        <div>
-          Search
+      <div className="container-fluid">
+        <div className="col-md-2">
+          <Search></Search>
         </div>
-        <div>
-          Result List
-            <div>
-              Result Item
-                <div>
-                  Rate Movie
-                </div>
-            </div>
-        </div>
-        <div>
-          Result Details
-        </div>
-        
-        <div>
-          Ranking
+        <div className="col-md-10">
+          <Results></Results>
+          <Details></Details>
         </div>
       </div>
     );
   }
 }
 
-render(<App/>, window.document.getElementById("app"));
+render(
+  <Provider store={store}>
+    <App/>
+  </Provider>, 
+  window.document.getElementById("app")
+);
