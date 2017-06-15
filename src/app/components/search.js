@@ -5,9 +5,9 @@ export class Search extends React.Component {
   searchApi(event){
     if (event.target.value.length>=3) {
       fetch(`https://swapi.co/api/people/?search=${event.target.value}`)
-        .then(d => d.json())
-        .then(d => {
-          console.log(d.results);
+        .then(response => response.json())
+        .then(response => {
+          console.log(response.results);
       });
     }
   }

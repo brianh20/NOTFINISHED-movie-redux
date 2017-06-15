@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-// import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+
+import { changeUser } from "./actions/user.actions";
 
 import store from "./store.js";
 
@@ -19,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="col-md-2">
+        <div className="col-md-2 search">
           <Search></Search>
         </div>
         <div className="col-md-10">
@@ -30,6 +32,23 @@ class App extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.user,
+        characters: state.characters
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeUser: (name) => {
+            dispatch(changeUser(name));
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 render(
   <Provider store={store}>
