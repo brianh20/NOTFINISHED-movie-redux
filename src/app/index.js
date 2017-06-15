@@ -14,11 +14,6 @@ import less from './styles/styles.less'; // eslint-disable-line
 class App extends React.Component {
   constructor(){
     super();
-    // fetch('https://swapi.co/api/people/?search=r2')
-    //   .then(d => d.json())
-    //   .then(d => {
-    //     console.log(d);
-    //   });
   }
 
   render() {
