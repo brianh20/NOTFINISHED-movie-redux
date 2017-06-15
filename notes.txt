@@ -1,0 +1,17 @@
+npm install react react-dom --save-dev
+npm install webpack webpack-dev-server babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-2 --save-dev
+
+components lifecycle:
+//-constructor
+-componentWillMount
+//-render
+-componentDidMount
+-componentWillReceiveProps (nextProps)
+-shouldComponentUpdate (nextProps, nextState) //(return false to prevent re-render)
+-componentWillUpdate (nextProps, nextState)
+-componentDidUpdate (prevProps, prevState)
+-componentWillUnmount
+
+look into: prop-types npm package 
+
+doesn't re-render unless state changes
