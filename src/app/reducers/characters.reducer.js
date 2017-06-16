@@ -1,24 +1,14 @@
-const charactersReducer = (state = {username:'Brian', logged:false}, action) => {
+const charactersReducer = (state = {chars: []}, action) => {
   switch (action.type) {
-    case 'LOG':
+    case 'LOAD_CHARS':
       state = {
         ...state,
-        logged: true
-      };
-      break;
-    case 'UNLOG':
-      state = {
-        ...state,
-        logged: false
-      };
-      break;
-    case 'CHANGE_USER':
-      state = {
-        ...state,
-        username: action.payload
+        chars: action.payload
       };
       break;
   }
+
+  console.log(state);
   return state;
 };
 
