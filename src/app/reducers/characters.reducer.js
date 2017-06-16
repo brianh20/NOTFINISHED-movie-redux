@@ -1,14 +1,12 @@
-const charactersReducer = (state = {chars: []}, action) => {
+const charactersReducer = (state = {characters: []}, action) => {
   switch (action.type) {
-    case 'LOAD_CHARS':
+    case 'LOAD_CHARACTERS':
       state = {
         ...state,
-        chars: action.payload
+        characters: action.payload
       };
       break;
   }
-
-  console.log(state);
   return state;
 };
 

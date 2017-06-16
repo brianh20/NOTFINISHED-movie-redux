@@ -1,6 +1,6 @@
-export function loadChars(chars) {
+export function loadCharacters(characters) {
     return {
-        type: "LOAD_CHARS",
-        payload: chars
+        type: "LOAD_CHARACTERS",
+        payload: characters
     };
 }

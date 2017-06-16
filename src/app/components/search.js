@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { List } from './list.js';
-import { loadChars } from "../actions/characters.actions";
+import { loadCharacters } from "../actions/characters.actions";
 
 class Search extends React.Component {
   searchApi(event){
@@ -10,13 +10,14 @@ class Search extends React.Component {
       fetch(`https://swapi.co/api/people/?search=${event.target.value}`)
         .then(response => response.json())
         .then(response => {
-          console.log(response.results);
-          this.props.loadChars(response.results);
+          console.log(this.props.characters.characters);
+          this.props.loadCharacters(response.results);
       });
     }
   }
 
   render(){
+
     return(
       <div>
         <div className="form-group">
@@ -38,8 +39,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadChars: (chars) => {
-            dispatch(loadChars(chars));
+        loadCharacters: (characters) => {
+            dispatch(loadCharacters(characters));
         }
     };
 };
